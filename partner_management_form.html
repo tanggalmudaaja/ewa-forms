@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Manajemen Mitra & Kerjasama B2B (EWA)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-50 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+        <!-- Header Banner with Logo on Left and Centered Title -->
+        <div class="bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-800 px-6 py-8 text-white relative flex items-center">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60" alt="Logo" class="w-14 h-14 rounded-xl object-cover border-2 border-white/30 shadow-md flex-shrink-0">
+            <div class="text-center flex-grow px-4">
+                <span class="bg-white/20 text-indigo-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">PKS B2B & Kemitraan Strategis</span>
+                <h1 class="text-xl sm:text-2xl font-bold mt-1">Manajemen Data Mitra & Skema Layanan</h1>
+                <p class="text-indigo-100 text-xs sm:text-sm mt-0.5">Pendaftaran badan mitra, konfigurasi level tarif flat admin, dan pembagian fee sharing.</p>
+            </div>
+        </div>
+
+        <div class="p-6 sm:p-10">
+            <form id="partnerForm" class="space-y-8">
+                <!-- Informasi Badan Mitra & Skema Tarif -->
+                <div class="border-b border-slate-200 pb-6">
+                    <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-indigo-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        Informasi Badan Mitra & Skema Tarif
+                    </h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Jenis Badan Mitra <span class="text-rose-500">*</span></label>
+                            <select id="partnerType" required onchange="togglePartnerFields()" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none text-sm">
+                                <option value="">Pilih Jenis Mitra</option>
+                                <option value="Perusahaan">Perusahaan</option>
+                                <option value="Koperasi">Koperasi</option>
+                                <option value="Institusi">Institusi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Nama Resmi Mitra <span class="text-rose-500">*</span></label>
+                            <input type="text" id="companyName" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none text-sm" placeholder="Contoh: Sejahtera Abadi">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">NIB / Badan Hukum <span class="text-rose-500">*</span></label>
+                            <input type="text" id="nibNumber" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none text-sm" placeholder="Nomor NIB">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">NPWP <span class="text-rose-500">*</span></label>
+                            <input type="text" id="npwpNumber" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none text-sm" placeholder="NPWP Badan">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 bg-indigo-50/70 p-4 rounded-xl border border-indigo-200">
+                        <div>
+                            <label class="block text-sm font-medium text-indigo-900 mb-1">Estimasi Jumlah Anggota Aktif <span class="text-rose-500">*</span></label>
+                            <input type="number" id="memberCount" required min="1" oninput="calculateFlatFeeTier()" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-indigo-500 outline-none text-sm" placeholder="Contoh: 250">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-indigo-900 mb-1">Level Tarif Admin Flat (Otomatis)</label>
+                            <input type="text" id="flatFeeTierDisplay" readonly class="w-full px-4 py-2.5 rounded-xl border border-indigo-300 bg-indigo-100/70 text-indigo-900 font-bold outline-none text-sm" value="Rp 0 (Tentukan jumlah anggota)">
+                            <input type="hidden" id="flatFeeAmount" value="15000">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Alamat Kantor Pusat <span class="text-rose-500">*</span></label>
+                        <textarea id="companyAddress" rows="2" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none text-sm" placeholder="Alamat lengkap..."></textarea>
+                    </div>
+
+                    <div id="documentRequirementsContainer" class="mt-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <p class="text-xs text-slate-400 italic">Silakan pilih "Jenis Badan Mitra" terlebih dahulu pada bagian atas.</p>
+                    </div>
+                </div>
+
+                <!-- Informasi Tim Marketing & Skema Fee Sharing -->
+                <div class="border-b border-slate-200 pb-6">
+                    <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-indigo-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        Informasi Tim Marketing & Skema Fee Sharing
+                    </h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="block text-sm font-medium text-slate-700">Marketing Agency Partner</label>
+                            <p class="text-xs text-slate-500 leading-relaxed">Pihak eksternal yang memiliki/mengelola tim marketing.</p>
+                            <input type="text" id="marketingAgency" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white outline-none text-sm" placeholder="Nama agensi...">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="block text-sm font-medium text-slate-700">Marketing Non-Agency</label>
+                            <p class="text-xs text-slate-500 leading-relaxed">Pihak eksternal yang bekerja sendiri.</p>
+                            <input type="text" id="marketingPartner" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white outline-none text-sm" placeholder="Nama marketing...">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="block text-sm font-medium text-slate-700">Referral Partner</label>
+                            <p class="text-xs text-slate-500 leading-relaxed">Pihak/orang yang merekomendasikan atau memperkenalkan calon klien.</p>
+                            <input type="text" id="marketingReferral" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white outline-none text-sm" placeholder="Nama referral...">
+                        </div>
+                    </div>
+
+                    <!-- Fee Sharing Table Layout -->
+                    <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                            <label class="block text-sm font-semibold text-slate-800">Distribusi Fee Sharing (%) dari Tarif Admin</label>
+                            <span class="text-xs text-slate-500">Total wajib tepat 100%</span>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-200 text-xs font-semibold text-slate-600">
+                                        <th class="py-2.5 px-3">Entitas / Pihak</th>
+                                        <th class="py-2.5 px-3 w-36 text-right">Persentase (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 text-sm">
+                                    <tr>
+                                        <td class="py-3 px-3 font-medium text-slate-800">TanggalMuda.com</td>
+                                        <td class="py-3 px-3 text-right">
+                                            <div class="relative flex items-center justify-end">
+                                                <input type="number" id="sharePlatform" value="70" min="0" max="100" step="0.5" oninput="validateFeeSharing()" class="w-24 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-sm font-semibold text-indigo-700 text-right outline-none">
+                                                <span class="ml-1.5 text-slate-500 text-xs font-semibold">%</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-3 font-medium text-slate-800">Mitra Perusahaan</td>
+                                        <td class="py-3 px-3 text-right">
+                                            <div class="relative flex items-center justify-end">
+                                                <input type="number" id="sharePartner" value="15" min="0" max="100" step="0.5" oninput="validateFeeSharing()" class="w-24 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-sm font-semibold text-indigo-700 text-right outline-none">
+                                                <span class="ml-1.5 text-slate-500 text-xs font-semibold">%</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-3 font-medium text-slate-800">Marketing Agency Partner</td>
+                                        <td class="py-3 px-3 text-right">
+                                            <div class="relative flex items-center justify-end">
+                                                <input type="number" id="shareAgency" value="5" min="0" max="100" step="0.5" oninput="validateFeeSharing()" class="w-24 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-sm font-semibold text-indigo-700 text-right outline-none">
+                                                <span class="ml-1.5 text-slate-500 text-xs font-semibold">%</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-3 font-medium text-slate-800">Marketing Non-Agency</td>
+                                        <td class="py-3 px-3 text-right">
+                                            <div class="relative flex items-center justify-end">
+                                                <input type="number" id="shareMarketingPartner" value="7.5" min="0" max="100" step="0.5" oninput="validateFeeSharing()" class="w-24 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-sm font-semibold text-indigo-700 text-right outline-none">
+                                                <span class="ml-1.5 text-slate-500 text-xs font-semibold">%</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-3 font-medium text-slate-800">Referral Partner</td>
+                                        <td class="py-3 px-3 text-right">
+                                            <div class="relative flex items-center justify-end">
+                                                <input type="number" id="shareReferral" value="2.5" min="0" max="100" step="0.5" oninput="validateFeeSharing()" class="w-24 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-sm font-semibold text-indigo-700 text-right outline-none">
+                                                <span class="ml-1.5 text-slate-500 text-xs font-semibold">%</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pt-1">
+                            <p id="feeWarning" class="text-xs text-emerald-600 font-medium">Total pembagian saat ini: 100% (Valid)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" onclick="openConfirmationModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm cursor-pointer">
+                    <span id="btnText">Kirim Data Mitra</span>
+                </button>
+            </form>
+            <div id="alertBox" class="hidden mt-6 p-4 rounded-xl text-sm transition-all duration-300"></div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal Dialog -->
+    <div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                <h3 class="text-lg font-bold text-slate-800">Konfirmasi Data Pendaftaran Mitra</h3>
+                <button type="button" onclick="closeConfirmationModal()" class="text-slate-400 hover:text-slate-600 p-1 cursor-pointer">✕</button>
+            </div>
+            <p class="text-xs text-slate-500">Mohon periksa kembali rincian data mitra dan skema fee sharing sebelum disimpan.</p>
+            <div id="modalSummaryContent" class="space-y-2 text-xs sm:text-sm bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-700 divide-y divide-slate-200"></div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button type="button" onclick="closeConfirmationModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium py-2.5 px-4 rounded-xl transition text-sm cursor-pointer">Edit Kembali</button>
+                <button type="button" onclick="submitFormConfirmed()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-sm shadow-sm cursor-pointer">Konfirmasi & Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const requirementsByType = {
+            "Perusahaan": [
+                { id: "docAktaPendirian", label: "Akta Pendirian Perusahaan beserta pengesahan Kemenkumham (Wajib)" },
+                { id: "docNib", label: "Nomor Induk Berusaha (NIB) (Wajib)" },
+                { id: "docNpwp", label: "NPWP Badan (Wajib)" }
+            ],
+            "Koperasi": [
+                { id: "docAdArt", label: "AD/ART Koperasi (Wajib)" },
+                { id: "docAktaKoperasi", label: "Akta Pendirian Koperasi (Wajib)" },
+                { id: "docNib", label: "NIB / Legalitas (Wajib)" },
+                { id: "docNpwp", label: "NPWP Koperasi (Wajib)" }
+            ],
+            "Institusi": [
+                { id: "docLegalitas", label: "Legalitas Pendirian Institusi (Wajib)" },
+                { id: "docDisnaker", label: "Tanda Daftar Disnaker (Wajib)" }
+            ]
+        };
+
+        function togglePartnerFields() {
+            const type = document.getElementById('partnerType').value;
+            const container = document.getElementById('documentRequirementsContainer');
+            if (!type || !requirementsByType[type]) {
+                container.innerHTML = '<p class="text-xs text-slate-400 italic">Silakan pilih jenis badan mitra terlebih dahulu.</p>';
+                return;
+            }
+            let html = '<p class="text-xs font-semibold text-indigo-900 mb-2">Dokumen Wajib untuk ' + type + ':</p><div class="space-y-2">';
+            requirementsByType[type].forEach(doc => {
+                html += `<div class="flex items-start space-x-2"><input type="checkbox" id="${doc.id}" required class="mt-1 h-4 w-4 text-indigo-600 rounded"><label for="${doc.id}" class="text-xs text-slate-700">${doc.label}</label></div>`;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function calculateFlatFeeTier() {
+            const count = parseInt(document.getElementById('memberCount').value) || 0;
+            const display = document.getElementById('flatFeeTierDisplay');
+            const hiddenFee = document.getElementById('flatFeeAmount');
+            let fee = 15000, tierName = "Tier Standard (Rp 15.000)";
+            if (count > 1000) { fee = 10000; tierName = "Tier Enterprise (>1000 Anggota) - Rp 10.000"; }
+            else if (count >= 500) { fee = 12500; tierName = "Tier Mid-Size (500-1000 Anggota) - Rp 12.500"; }
+            else if (count > 0) { fee = 15000; tierName = "Tier Standard (<500 Anggota) - Rp 15.000"; }
+            else { tierName = "Rp 0 (Masukkan jumlah anggota)"; fee = 0; }
+            display.value = tierName;
+            hiddenFee.value = fee;
+        }
+
+        function validateFeeSharing() {
+            const platform = parseFloat(document.getElementById('sharePlatform').value) || 0;
+            const partner = parseFloat(document.getElementById('sharePartner').value) || 0;
+            const agency = parseFloat(document.getElementById('shareAgency').value) || 0;
+            const marketingPartner = parseFloat(document.getElementById('shareMarketingPartner').value) || 0;
+            const referral = parseFloat(document.getElementById('shareReferral').value) || 0;
+            const total = platform + partner + agency + marketingPartner + referral;
+            const warning = document.getElementById('feeWarning');
+            if (total === 100) {
+                warning.textContent = `Total pembagian saat ini: ${total}% (Valid)`;
+                warning.className = 'text-xs text-emerald-600 font-medium';
+            } else {
+                warning.textContent = `Total pembagian saat ini: ${total}% (Wajib tepat 100%)`;
+                warning.className = 'text-xs text-rose-600 font-medium';
+            }
+        }
+
+        function openConfirmationModal() {
+            const form = document.getElementById('partnerForm');
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            const platform = parseFloat(document.getElementById('sharePlatform').value) || 0;
+            const partner = parseFloat(document.getElementById('sharePartner').value) || 0;
+            const agency = parseFloat(document.getElementById('shareAgency').value) || 0;
+            const marketingPartner = parseFloat(document.getElementById('shareMarketingPartner').value) || 0;
+            const referral = parseFloat(document.getElementById('shareReferral').value) || 0;
+            if (platform + partner + agency + marketingPartner + referral !== 100) {
+                alert('Total persentase fee sharing harus bernilai tepat 100%.'); return;
+            }
+            document.getElementById('modalSummaryContent').innerHTML = `
+                <div class="py-1 flex justify-between"><span>Nama Mitra:</span><span class="font-semibold">${document.getElementById('companyName').value}</span></div>
+                <div class="py-1 flex justify-between"><span>Jumlah Anggota:</span><span class="font-semibold">${document.getElementById('memberCount').value}</span></div>
+                <div class="py-1 flex justify-between"><span>Tarif Admin Flat:</span><span class="font-semibold text-indigo-700">${document.getElementById('flatFeeTierDisplay').value}</span></div>
+            `;
+            document.getElementById('confirmModal').classList.remove('hidden');
+        }
+
+        function closeConfirmationModal() { document.getElementById('confirmModal').classList.add('hidden'); }
+
+        async function submitFormConfirmed() {
+            closeConfirmationModal();
+            const alertBox = document.getElementById('alertBox');
+            const formData = {
+                partnerType: document.getElementById('partnerType').value,
+                companyName: document.getElementById('companyName').value,
+                nibNumber: document.getElementById('nibNumber').value,
+                npwpNumber: document.getElementById('npwpNumber').value,
+                memberCount: document.getElementById('memberCount').value,
+                flatFeeAmount: document.getElementById('flatFeeAmount').value,
+                companyAddress: document.getElementById('companyAddress').value,
+                marketingAgency: document.getElementById('marketingAgency').value || '-',
+                marketingPartner: document.getElementById('marketingPartner').value || '-',
+                marketingReferral: document.getElementById('marketingReferral').value || '-',
+                sharePlatform: document.getElementById('sharePlatform').value,
+                sharePartner: document.getElementById('sharePartner').value,
+                shareAgency: document.getElementById('shareAgency').value,
+                shareMarketingPartner: document.getElementById('shareMarketingPartner').value,
+                shareReferral: document.getElementById('shareReferral').value
+            };
+
+            try {
+                // Submit to the active Apps Script deployment
+                fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
+                    method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData)
+                });
+                alertBox.textContent = 'Data mitra berhasil dikirim!';
+                alertBox.className = 'mt-6 p-4 rounded-xl text-sm bg-emerald-50 text-emerald-800 border border-emerald-200';
+                document.getElementById('partnerForm').reset();
+            } catch (e) {
+                alertBox.textContent = 'Gagal mengirim data.';
+                alertBox.className = 'mt-6 p-4 rounded-xl text-sm bg-rose-50 text-rose-800 border border-rose-200';
+            }
+        }
+    </script>
+</body>
+</html>
