@@ -12,65 +12,89 @@
     <div class="max-w-4xl mx-auto space-y-8">
         
         <div class="bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-800 rounded-2xl shadow-xl p-8 text-white text-center relative overflow-hidden flex items-center">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60" alt="Logo" class="w-16 h-16 rounded-2xl object-cover border-2 border-white/30 shadow-lg mr-6 flex-shrink-0">
+            <img id="hubLogo" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60" alt="Logo" class="w-16 h-16 rounded-2xl object-cover border-2 border-white/30 shadow-lg mr-6 flex-shrink-0" onerror="this.src='https://placehold.co/100x100/4f46e5/ffffff?text=Logo'">
             <div class="relative z-10 flex flex-col items-center flex-grow">
                 <span class="bg-white/20 text-indigo-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-2">TanggalMuda.com B2B Portal</span>
                 <h1 class="text-2xl sm:text-3xl font-bold">Pusat Layanan Earned Wage Access (EWA)</h1>
-                <p class="text-indigo-100 text-sm sm:text-base mt-2 max-w-xl">Pilih modul aplikasi di bawah ini untuk pendaftaran mitra korporasi, pengajuan pencairan gaji fleksibel, atau registrasi akun karyawan.</p>
+                <p class="text-indigo-100 text-sm sm:text-base mt-2 max-w-xl">Pilih modul aplikasi di bawah ini untuk pendaftaran mitra korporasi, pencairan gaji, manajemen marketing, atau registrasi karyawan.</p>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <!-- Card 1: Partner Registration -->
             <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-slate-100 flex flex-col justify-between">
                 <div>
                     <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">🏢</div>
-                    <h2 class="text-lg font-bold text-slate-800 mb-2">Manajemen Mitra B2B</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 mb-4 leading-relaxed">Pendaftaran badan mitra (Perusahaan/Koperasi/Institusi), konfigurasi level tarif flat admin, dan pengaturan fee sharing.</p>
+                    <h2 class="text-base font-bold text-slate-800 mb-2">Manajemen Mitra B2B</h2>
+                    <p class="text-xs text-slate-500 mb-4 leading-relaxed">Pendaftaran badan mitra, tarif admin flat minimal 35rb, dan fee sharing.</p>
                 </div>
                 <div>
-                    <a href="partner_registration.html" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-sm flex items-center justify-center shadow-sm">
-                        Buka Form Mitra &rarr;
+                    <a href="partner_registration.html" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-xs flex items-center justify-center shadow-sm">
+                        Buka Form &rarr;
                     </a>
                 </div>
             </div>
 
-            <!-- Card 2: EWA Disbursement -->
+            <!-- Card 2: Marketing App -->
+            <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">📈</div>
+                    <h2 class="text-base font-bold text-slate-800 mb-2">Manajemen Marketing</h2>
+                    <p class="text-xs text-slate-500 mb-4 leading-relaxed">Kelola database marketing agency, marketing non-agency, & referral partner.</p>
+                </div>
+                <div>
+                    <a href="marketing_app.html" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-xs flex items-center justify-center shadow-sm">
+                        Buka Modul &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: EWA Disbursement -->
             <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-slate-100 flex flex-col justify-between">
                 <div>
                     <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">💸</div>
-                    <h2 class="text-lg font-bold text-slate-800 mb-2">Pencairan Gaji (EWA)</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 mb-4 leading-relaxed">Pengajuan pencairan sebagian gaji proporsional sebelum tanggal penggajian dengan transparansi estimasi plafon.</p>
+                    <h2 class="text-base font-bold text-slate-800 mb-2">Pencairan Gaji (EWA)</h2>
+                    <p class="text-xs text-slate-500 mb-4 leading-relaxed">Pengajuan pencairan sebagian gaji proporsional dengan transparansi plafon.</p>
                 </div>
                 <div>
-                    <a href="ewa_disbursement.html" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-sm flex items-center justify-center shadow-sm">
-                        Buka Form Pencairan &rarr;
+                    <a href="ewa_disbursement.html" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-xs flex items-center justify-center shadow-sm">
+                        Buka Form &rarr;
                     </a>
                 </div>
             </div>
 
-            <!-- Card 3: Member Registration -->
+            <!-- Card 4: Member Registration -->
             <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-slate-100 flex flex-col justify-between">
                 <div>
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">👤</div>
-                    <h2 class="text-lg font-bold text-slate-800 mb-2">Pendaftaran Anggota</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 mb-4 leading-relaxed">Registrasi akun karyawan baru, verifikasi KTP, selfie, serta sinkronisasi langsung dengan PIC perusahaan mitra.</p>
+                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">👤</div>
+                    <h2 class="text-base font-bold text-slate-800 mb-2">Pendaftaran Anggota</h2>
+                    <p class="text-xs text-slate-500 mb-4 leading-relaxed">Registrasi karyawan, kamera KTP & selfie, serta email approval ke PIC HR.</p>
                 </div>
                 <div>
-                    <a href="registration.html" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-sm flex items-center justify-center shadow-sm">
-                        Buka Form Pendaftaran &rarr;
+                    <a href="registration.html" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-xs flex items-center justify-center shadow-sm">
+                        Buka Form &rarr;
                     </a>
                 </div>
             </div>
 
-        </div>
-
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200 text-xs sm:text-sm text-slate-600 space-y-2 shadow-sm">
-            <h3 class="font-semibold text-slate-800">Catatan Penggunaan & Hosting Online</h3>
-            <p>Pastikan file-file HTML ini berada dalam satu folder yang sama (bersama <code>partner_registration.html</code>, <code>ewa_disbursement.html</code>, dan <code>registration.html</code>) agar tautan navigasi berfungsi sempurna. Jika di-host melalui <strong>GitHub Pages (Public Repository)</strong>, Netlify, atau Vercel, halaman ini akan menjadi portal utama ekosistem EWA Anda.</p>
         </div>
 
     </div>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                let scriptURL = localStorage.getItem('ewa_script_url') || '';
+                if (scriptURL) {
+                    const res = await fetch(scriptURL + '?getConfig=true');
+                    const data = await res.json();
+                    if (data && data.logoUrl) {
+                        document.getElementById('hubLogo').src = data.logoUrl;
+                    }
+                }
+            } catch (e) {}
+        });
+    </script>
 </body>
 </html>
