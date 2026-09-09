@@ -14,25 +14,373 @@
         <div class="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-8 text-white relative flex items-center">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60" alt="Logo" class="w-14 h-14 rounded-xl object-cover border-2 border-white/30 shadow-md flex-shrink-0">
             <div class="text-center flex-grow px-4">
-                <span class="bg-blue-500/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Fasilitas Keuangan Karyawan</span>
-                <h1 class="text-xl sm:text-2xl font-bold mt-1">Pendaftaran Akun EWA</h1>
+                <span class="bg-blue-500/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">FORMULIR PENDAFTARAN AKUN BARU</span>
+                <h1 class="text-xl sm:text-2xl font-bold mt-1">KEANGGOTAN LAYANAN TANGGALMUDA.COM</h1>
                 <p class="text-blue-100 text-xs sm:text-sm mt-0.5">Nikmati akses gaji fleksibel sebelum tanggal penggajian tiba.</p>
             </div>
         </div>
 
         <div class="p-6 sm:p-8">
             <form id="ewaForm" class="space-y-6">
-                <div class="border-b border-slate-200 pb-6">
-                    <h2 class="text-lg font-semibold text-slate-800 mb-4">Informasi Pribadi & Identitas KTP</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div><label class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label><input type="text" id="fullName" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-sm"></div>
-                        <div><label class="block text-sm font-medium text-slate-700 mb-1">NIK Karyawan</label><input type="text" id="employeeId" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-sm"></div>
+                <!-- Informasi Pribadi & Identitas KTP (Row-by-Row Layout) -->
+                <div class="border-b border-slate-200 pb-6 space-y-4">
+                    <h2 class="text-lg font-semibold text-slate-800 flex items-center mb-2">
+                        <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        Informasi Pribadi & Identitas KTP
+                    </h2>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap <span class="text-rose-500">*</span></label>
+                        <input type="text" id="fullName" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Sesuai KTP">
                     </div>
-                    <div class="mt-4"><label class="block text-sm font-medium text-slate-700 mb-1">NIK KTP (16 Digit)</label><input type="text" id="ktpNumber" required maxlength="16" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-sm"></div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">NIK Karyawan <span class="text-rose-500">*</span></label>
+                        <input type="text" id="employeeId" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Nomor Induk Karyawan">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">NIK KTP (16 Digit) <span class="text-rose-500">*</span></label>
+                        <input type="text" id="ktpNumber" required maxlength="16" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="16 digit NIK pada KTP">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nomor WhatsApp Aktif <span class="text-rose-500">*</span></label>
+                        <input type="tel" id="phone" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="08xxxxxxxxxx">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Email Pribadi / Kantor <span class="text-rose-500">*</span></label>
+                        <input type="email" id="email" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="nama@email.com">
+                    </div>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-xl shadow-md transition text-sm cursor-pointer">Kirim Pendaftaran</button>
+
+                <!-- Informasi Kepegawaian & Perusahaan (Row-by-Row Layout) -->
+                <div class="border-b border-slate-200 pb-6 space-y-4">
+                    <h2 class="text-lg font-semibold text-slate-800 flex items-center mb-2">
+                        <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Informasi Kepegawaian & Perusahaan Mitra
+                    </h2>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Departemen / Divisi <span class="text-rose-500">*</span></label>
+                        <input type="text" id="department" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Contoh: Operasional / HR">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Jabatan / Posisi <span class="text-rose-500">*</span></label>
+                        <input type="text" id="jobPosition" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Contoh: Staf / Supervisor">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Status Kepegawaian <span class="text-rose-500">*</span></label>
+                        <select id="employmentStatus" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                            <option value="">Pilih Status</option>
+                            <option value="Tetap">Karyawan Tetap</option>
+                            <option value="Kontrak">Karyawan Kontrak (PKWT)</option>
+                            <option value="Freelance">Freelance / Harian</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Mulai Kontrak / Gabung</label>
+                        <input type="date" id="contractStart" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Akhir Kontrak (Opsional)</label>
+                        <input type="date" id="contractEnd" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nama Perusahaan Tempat Bekerja <span class="text-rose-500">*</span></label>
+                        <input type="text" id="company" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="PT Sejahtera Abadi">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Email PIC HR / Atasan Penyetuju <span class="text-rose-500">*</span></label>
+                        <input type="email" id="picEmail" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="hrd@perusahaan.com">
+                    </div>
+
+                    <div class="bg-blue-50/60 p-4 rounded-xl border border-blue-200 space-y-1">
+                        <label class="block text-sm font-medium text-blue-900 mb-1">Gaji Pokok Bulanan (Rp) <span class="text-rose-500">*</span></label>
+                        <input type="number" id="baseSalary" required min="0" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-blue-800 outline-none text-sm" placeholder="Contoh: 5000000">
+                        <p class="text-[11px] text-blue-700 mt-1">Digunakan sebagai dasar perhitungan plafon proporsional Earned Wage Access (EWA).</p>
+                    </div>
+                </div>
+
+                <!-- Informasi Rekening Bank Pencairan (Row-by-Row Layout) -->
+                <div class="border-b border-slate-200 pb-6 space-y-4">
+                    <h2 class="text-lg font-semibold text-slate-800 flex items-center mb-2">
+                        <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        Informasi Rekening Bank Pencairan Gaji
+                    </h2>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nama Bank <span class="text-rose-500">*</span></label>
+                        <select id="bankName" required onchange="toggleOtherBank(this)" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                            <option value="">Pilih Bank</option>
+                            <option value="BCA">BCA</option>
+                            <option value="Mandiri">Mandiri</option>
+                            <option value="BNI">BNI</option>
+                            <option value="BRI">BRI</option>
+                            <option value="CIMB Niaga">CIMB Niaga</option>
+                            <option value="Bank Lainnya">Bank Lainnya</option>
+                        </select>
+                    </div>
+
+                    <div id="otherBankContainer" class="hidden">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Masukkan Nama Bank Lainnya <span class="text-rose-500">*</span></label>
+                        <input type="text" id="otherBankName" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Contoh: Bank Permata / Bank Mega">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nomor Rekening <span class="text-rose-500">*</span></label>
+                        <input type="text" id="accountNumber" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Nomor rekening valid">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nama Pemilik Rekening <span class="text-rose-500">*</span></label>
+                        <input type="text" id="accountName" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Wajib sesuai KTP">
+                    </div>
+                </div>
+
+                <!-- Unggah Dokumen Verifikasi KTP & Selfie (Row-by-Row Layout) -->
+                <div class="border-b border-slate-200 pb-6 space-y-4">
+                    <h2 class="text-lg font-semibold text-slate-800 mb-1 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
+                        Unggah atau Ambil Foto KTP & Selfie Verifikasi
+                    </h2>
+                    <p class="text-xs text-slate-500 mb-3">Pilih file dari perangkat atau langsung buka kamera untuk mengambil foto secara instan.</p>
+
+                    <!-- Foto KTP -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <label class="block text-sm font-medium text-slate-700">Foto KTP Asli <span class="text-rose-500">*</span></label>
+                        <div class="flex flex-col sm:flex-row items-center gap-2">
+                            <label class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-xl text-xs cursor-pointer transition shadow-sm flex items-center justify-center">
+                                <span>📁 Pilih File KTP</span>
+                                <input type="file" id="ktpImageFile" accept="image/*" required onchange="encodeImageFileAsURL(this, 'ktpPhoto', 'previewKtp')" class="hidden">
+                            </label>
+                            <button type="button" onclick="openCameraModal('ktpPhoto', 'previewKtp', 'Foto KTP')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl text-xs cursor-pointer transition shadow-sm flex items-center justify-center">
+                                <span>📸 Buka Kamera</span>
+                            </button>
+                        </div>
+                        <input type="hidden" id="ktpPhoto">
+                        <div id="previewKtp" class="text-xs text-emerald-600 font-medium"></div>
+                    </div>
+
+                    <!-- Foto Selfie -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <label class="block text-sm font-medium text-slate-700">Foto Selfie Memegang KTP <span class="text-rose-500">*</span></label>
+                        <div class="flex flex-col sm:flex-row items-center gap-2">
+                            <label class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-xl text-xs cursor-pointer transition shadow-sm flex items-center justify-center">
+                                <span>📁 Pilih File Selfie</span>
+                                <input type="file" id="selfieImageFile" accept="image/*" required onchange="encodeImageFileAsURL(this, 'selfiePhoto', 'previewSelfie')" class="hidden">
+                            </label>
+                            <button type="button" onclick="openCameraModal('selfiePhoto', 'previewSelfie', 'Foto Selfie KTP')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl text-xs cursor-pointer transition shadow-sm flex items-center justify-center">
+                                <span>📸 Buka Kamera</span>
+                            </button>
+                        </div>
+                        <input type="hidden" id="selfiePhoto">
+                        <div id="previewSelfie" class="text-xs text-emerald-600 font-medium"></div>
+                    </div>
+                </div>
+
+                <button type="button" onclick="openConfirmationModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm cursor-pointer">
+                    <span id="btnText">Kirim Pendaptaran</span>
+                </button>
             </form>
+            <div id="alertBox" class="hidden mt-6 p-4 rounded-xl text-sm transition-all duration-300"></div>
         </div>
     </div>
+
+    <!-- Live Camera Modal Dialog -->
+    <div id="cameraModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 space-y-4 text-center">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <h3 id="cameraModalTitle" class="text-base font-bold text-slate-800">Ambil Foto Langsung</h3>
+                <button type="button" onclick="closeCameraModal()" class="text-slate-400 hover:text-slate-600 p-1 cursor-pointer font-bold">✕</button>
+            </div>
+            
+            <div class="relative bg-black rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
+                <video id="cameraVideo" autoplay playsinline class="w-full h-full object-cover"></video>
+                <canvas id="cameraCanvas" class="hidden"></canvas>
+            </div>
+
+            <p class="text-xs text-slate-500">Posisikan objek dengan jelas di dalam bingkai, lalu klik tombol tangkap di bawah.</p>
+
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button type="button" onclick="closeCameraModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium py-2.5 px-4 rounded-xl transition text-sm cursor-pointer">Batal</button>
+                <button type="button" onclick="captureCameraPhoto()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-sm shadow-sm cursor-pointer flex items-center justify-center space-x-1">
+                    <span>📸 Tangkap Foto</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal Dialog -->
+    <div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                <h3 class="text-lg font-bold text-slate-800">Konfirmasi Data Pendaftaran EWA</h3>
+                <button type="button" onclick="closeConfirmationModal()" class="text-slate-400 hover:text-slate-600 p-1 cursor-pointer">✕</button>
+            </div>
+            <p class="text-xs text-slate-500">Mohon periksa kembali rincian data Anda sebelum dikirimkan ke PIC Perusahaan.</p>
+            <div id="modalSummaryContent" class="space-y-2 text-xs sm:text-sm bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-700 divide-y divide-slate-200"></div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button type="button" onclick="closeConfirmationModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium py-2.5 px-4 rounded-xl transition text-sm cursor-pointer">Edit Kembali</button>
+                <button type="button" onclick="submitFormConfirmed()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-sm shadow-sm cursor-pointer">Konfirmasi & Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTargetInputId = '';
+        let currentTargetPreviewId = '';
+        let mediaStream = null;
+
+        function toggleOtherBank(selectEl) {
+            const otherContainer = document.getElementById('otherBankContainer');
+            const otherInput = document.getElementById('otherBankName');
+            if (selectEl.value === 'Bank Lainnya') {
+                otherContainer.classList.remove('hidden');
+                otherInput.setAttribute('required', 'true');
+            } else {
+                otherContainer.classList.add('hidden');
+                otherInput.removeAttribute('required');
+                otherInput.value = '';
+            }
+        }
+
+        function encodeImageFileAsURL(element, targetId, previewId) {
+            const file = element.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                document.getElementById(targetId).value = reader.result;
+                document.getElementById(previewId).textContent = '✓ File berhasil dimuat (' + file.name + ')';
+            }
+            reader.readAsDataURL(file);
+        }
+
+        async function openCameraModal(targetId, previewId, titleLabel) {
+            currentTargetInputId = targetId;
+            currentTargetPreviewId = previewId;
+            document.getElementById('cameraModalTitle').textContent = 'Ambil ' + titleLabel;
+            document.getElementById('cameraModal').classList.remove('hidden');
+
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+                const videoEl = document.getElementById('cameraVideo');
+                videoEl.srcObject = mediaStream;
+            } catch (err) {
+                alert('Tidak dapat mengakses kamera. Pastikan izin kamera telah diberikan pada browser Anda.');
+                closeCameraModal();
+            }
+        }
+
+        function closeCameraModal() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                mediaStream = null;
+            }
+            document.getElementById('cameraModal').classList.add('hidden');
+        }
+
+        function captureCameraPhoto() {
+            const video = document.getElementById('cameraVideo');
+            const canvas = document.getElementById('cameraCanvas');
+            canvas.width = video.videoWidth || 640;
+            canvas.height = video.videoHeight || 480;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            const dataURL = canvas.toDataURL('image/jpeg', 0.85);
+            document.getElementById(currentTargetInputId).value = dataURL;
+            document.getElementById(currentTargetPreviewId).textContent = '✓ Foto kamera berhasil diambil';
+            closeCameraModal();
+        }
+
+        function openConfirmationModal() {
+            const form = document.getElementById('ewaForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            const fullName = document.getElementById('fullName').value;
+            const nik = document.getElementById('employeeId').value;
+            const company = document.getElementById('company').value;
+            const salary = document.getElementById('baseSalary').value;
+            const pic = document.getElementById('picEmail').value;
+
+            document.getElementById('modalSummaryContent').innerHTML = `
+                <div class="py-1 flex justify-between"><span>Nama Lengkap:</span><span class="font-semibold">${fullName}</span></div>
+                <div class="py-1 flex justify-between"><span>NIK Karyawan:</span><span class="font-semibold">${nik}</span></div>
+                <div class="py-1 flex justify-between"><span>Perusahaan:</span><span class="font-semibold">${company}</span></div>
+                <div class="py-1 flex justify-between"><span>Gaji Pokok:</span><span class="font-semibold text-blue-700">Rp ${Number(salary).toLocaleString('id-ID')}</span></div>
+                <div class="py-1 flex justify-between"><span>Email PIC HR:</span><span class="font-semibold">${pic}</span></div>
+            `;
+            document.getElementById('confirmModal').classList.remove('hidden');
+        }
+
+        function closeConfirmationModal() {
+            document.getElementById('confirmModal').classList.add('hidden');
+        }
+
+        async function submitFormConfirmed() {
+            closeConfirmationModal();
+            const alertBox = document.getElementById('alertBox');
+            const btnText = document.getElementById('btnText');
+            btnText.textContent = 'Mengirim Data ke Server...';
+
+            let selectedBank = document.getElementById('bankName').value;
+            if (selectedBank === 'Bank Lainnya') {
+                selectedBank = document.getElementById('otherBankName').value || 'Bank Lainnya';
+            }
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                employeeId: document.getElementById('employeeId').value,
+                ktpNumber: document.getElementById('ktpNumber').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                department: document.getElementById('department').value,
+                jobPosition: document.getElementById('jobPosition').value,
+                employmentStatus: document.getElementById('employmentStatus').value,
+                contractStart: document.getElementById('contractStart').value || '-',
+                contractEnd: document.getElementById('contractEnd').value || '-',
+                company: document.getElementById('company').value,
+                picEmail: document.getElementById('picEmail').value,
+                baseSalary: document.getElementById('baseSalary').value,
+                bankName: selectedBank,
+                accountNumber: document.getElementById('accountNumber').value,
+                accountName: document.getElementById('accountName').value,
+                ktpPhoto: document.getElementById('ktpPhoto').value,
+                selfiePhoto: document.getElementById('selfiePhoto').value
+            };
+
+            try {
+                let scriptURL = localStorage.getItem('ewa_script_url') || 'https://script.google.com/macros/s/AKfycbz.../exec';
+
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                alertBox.textContent = 'Pendaftaran EWA berhasil dikirim! Email persetujuan telah diteruskan ke PIC HR Perusahaan.';
+                alertBox.className = 'mt-6 p-4 rounded-xl text-sm bg-emerald-50 text-emerald-800 border border-emerald-200';
+                document.getElementById('ewaForm').reset();
+                document.getElementById('previewKtp').textContent = '';
+                document.getElementById('previewSelfie').textContent = '';
+            } catch (error) {
+                alertBox.textContent = 'Gagal mengirim pendaftaran. Periksa koneksi internet Anda.';
+                alertBox.className = 'mt-6 p-4 rounded-xl text-sm bg-rose-50 text-rose-800 border border-rose-200';
+            } finally {
+                btnText.textContent = 'Kirim Pendaptaran';
+            }
+        }
+    </script>
 </body>
 </html>
