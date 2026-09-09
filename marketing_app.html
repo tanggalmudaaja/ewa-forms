@@ -11,6 +11,7 @@
 <body class="bg-gradient-to-br from-blue-50 via-slate-50 to-indigo-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto space-y-6">
         
+        <!-- Header -->
         <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-800 rounded-2xl shadow-xl p-6 text-white flex items-center justify-between">
             <div class="flex items-center space-x-4">
                 <img id="appLogo" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60" alt="Logo" class="w-12 h-12 rounded-xl object-cover border-2 border-white/30 shadow" onerror="this.src='https://placehold.co/100x100/4f46e5/ffffff?text=Logo'">
@@ -22,91 +23,136 @@
             <a href="partner_registration.html" class="bg-white/20 hover:bg-white/30 text-white text-xs font-medium px-3 py-2 rounded-xl transition">&larr; Kembali ke Mitra</a>
         </div>
 
+        <!-- Form Card -->
         <div class="bg-white rounded-2xl shadow-md p-6 sm:p-8 border border-slate-200">
             <div class="border-b border-slate-200 pb-4 mb-6">
                 <h2 class="text-base font-bold text-slate-800">Formulir Pendaftaran Personil / Agency Marketing</h2>
-                <p class="text-xs text-slate-500 mt-0.5">Lengkapi seluruh informasi data diri, legalitas KTP, serta rekening bank pencairan komisi.</p>
+                <p class="text-xs text-slate-500 mt-0.5">Lengkapi seluruh informasi data diri, legalitas KTP, NPWP, serta rekening bank pencairan komisi secara berurutan.</p>
             </div>
 
             <form id="marketingForm" class="space-y-5">
-                <!-- Baris 1: ID & Kategori -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-medium text-slate-700 mb-1">ID Marketing <span class="text-rose-500">*</span></label>
-                        <input type="text" id="mId" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 uppercase focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="MKT-001">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-slate-700 mb-1">Kategori Peran <span class="text-rose-500">*</span></label>
-                        <select id="mCategory" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
-                            <option value="">Pilih Kategori Peran</option>
-                            <option value="Marketing Agency Partner">Marketing Agency Partner</option>
-                            <option value="Marketing Non-Agency">Marketing Non-Agency</option>
-                            <option value="Referral Partner">Referral Partner</option>
-                        </select>
-                    </div>
+                <!-- Baris 1: ID Marketing -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">ID Marketing <span class="text-rose-500">*</span></label>
+                    <input type="text" id="mId" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 uppercase focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="MKT-001">
                 </div>
 
-                <!-- Baris 2: Nama Lengkap / Agency -->
+                <!-- Baris 2: Kategori Peran -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">Kategori Peran <span class="text-rose-500">*</span></label>
+                    <select id="mCategory" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="">Pilih Kategori Peran</option>
+                        <option value="Marketing Agency Partner">Marketing Agency Partner</option>
+                        <option value="Marketing Non-Agency">Marketing Non-Agency</option>
+                        <option value="Referral Partner">Referral Partner</option>
+                    </select>
+                </div>
+
+                <!-- Baris 3: Nama Lengkap / Agency -->
                 <div>
                     <label class="block text-xs font-medium text-slate-700 mb-1">Nama Lengkap / Agency <span class="text-rose-500">*</span></label>
                     <input type="text" id="mName" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Masukkan nama personil atau nama PT/CV Agency">
                 </div>
 
-                <!-- Baris 3: WhatsApp & HP Lain -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-medium text-slate-700 mb-1">Nomor WhatsApp Aktif <span class="text-rose-500">*</span></label>
-                        <input type="tel" id="mWa" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="08xxxxxxxxxx">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-slate-700 mb-1">Nomor HP / Telepon Lain <span class="text-rose-500">*</span></label>
-                        <input type="tel" id="mPhone" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="08xxxxxxxxxx">
-                    </div>
+                <!-- Baris 4: Nomor WhatsApp Aktif -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">Nomor WhatsApp Aktif <span class="text-rose-500">*</span></label>
+                    <input type="tel" id="mWa" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="08xxxxxxxxxx">
                 </div>
 
-                <!-- Baris 4: NIK KTP -->
+                <!-- Baris 5: Nomor NPWP -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">Nomor NPWP <span class="text-rose-500">*</span></label>
+                    <input type="text" id="mNpwp" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Nomor NPWP valid">
+                </div>
+
+                <!-- Baris 6: NIK KTP -->
                 <div>
                     <label class="block text-xs font-medium text-slate-700 mb-1">NIK KTP (16 Digit) <span class="text-rose-500">*</span></label>
                     <input type="text" id="mKtp" required maxlength="16" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Masukkan 16 digit nomor KTP">
                 </div>
 
-                <!-- Baris 5: Alamat Domisili -->
+                <!-- Baris 7: Alamat Domisili -->
                 <div>
                     <label class="block text-xs font-medium text-slate-700 mb-1">Alamat Domisili Lengkap <span class="text-rose-500">*</span></label>
                     <textarea id="mAddress" rows="2.5" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Alamat lengkap sesuai KTP..."></textarea>
                 </div>
 
-                <!-- Baris 6: Rekening Bank -->
-                <div>
-                    <label class="block text-xs font-medium text-slate-700 mb-1">Informasi Rekening Bank Pencairan Komisi <span class="text-rose-500">*</span></label>
-                    <input type="text" id="mBank" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Contoh: BCA 1234567890 a.n Nama Pemilik Rekening">
+                <!-- Baris 8: Informasi Rekening Bank Terpisah -->
+                <div class="space-y-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <label class="block text-xs font-semibold text-slate-700">Informasi Rekening Bank Pencairan Komisi <span class="text-rose-500">*</span></label>
+                    
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-600 mb-1">Nama Bank</label>
+                        <select id="mBankName" required onchange="toggleOtherBank(this)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                            <option value="">Pilih Bank</option>
+                            <option value="BCA">BCA</option>
+                            <option value="Mandiri">Mandiri</option>
+                            <option value="BNI">BNI</option>
+                            <option value="BRI">BRI</option>
+                            <option value="CIMB Niaga">CIMB Niaga</option>
+                            <option value="Bank Lainnya">Bank Lainnya</option>
+                        </select>
+                    </div>
+
+                    <div id="otherBankContainer" class="hidden">
+                        <label class="block text-[11px] font-medium text-slate-600 mb-1">Masukkan Nama Bank Lainnya <span class="text-rose-500">*</span></label>
+                        <input type="text" id="mOtherBankName" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Contoh: Bank Permata">
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-600 mb-1">Nomor Rekening</label>
+                        <input type="text" id="mAccountNumber" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Nomor Rekening">
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-600 mb-1">Nama Pemilik Rekening</label>
+                        <input type="text" id="mAccountName" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Sesuai Buku Tabungan">
+                    </div>
                 </div>
 
-                <!-- Baris 7: Unggah Foto KTP & Kamera -->
+                <!-- Baris 9: Unggah Foto KTP (Galeri & Kamera) -->
                 <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
-                    <label class="block text-xs font-medium text-slate-700">Foto KTP Pendaftar Marketing <span class="text-rose-500">*</span></label>
+                    <label class="block text-xs font-medium text-slate-700">Foto KTP Pendaftar Marketing (Pilih Galeri atau Kamera) <span class="text-rose-500">*</span></label>
                     <div class="flex flex-col sm:flex-row items-center gap-2">
                         <label class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-xl text-xs cursor-pointer transition shadow-sm flex items-center justify-center">
-                            <span>📁 Pilih File KTP</span>
-                            <input type="file" id="mKtpFile" accept="image/*" onchange="encodeKtpImage(this)" class="hidden">
+                            <span>📁 Pilih dari Galeri</span>
+                            <input type="file" id="ktpImageFile" accept="image/*" onchange="encodeImageFileAsURL(this)" class="hidden">
                         </label>
                         <button type="button" onclick="openCameraModal()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl text-xs cursor-pointer transition shadow-sm flex items-center justify-center">
-                            <span>📸 Ambil Foto Kamera</span>
+                            <span>📸 Ambil via Kamera</span>
                         </button>
                     </div>
-                    <input type="hidden" id="mKtpPhotoBase64">
+                    <input type="hidden" id="mKtpPhotoBase64" required>
                     <div id="ktpPreviewStatus" class="text-xs text-emerald-600 font-medium"></div>
                 </div>
 
                 <!-- Tombol Submit -->
                 <div class="pt-2">
-                    <button type="submit" id="btnSubmit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-xl text-sm transition shadow-md cursor-pointer">Simpan & Daftarkan Marketing</button>
+                    <button type="button" onclick="openConfirmationModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-xl text-sm transition shadow-md cursor-pointer">Simpan & Daftarkan Marketing</button>
                 </div>
             </form>
             <div id="alertBox" class="hidden mt-4 p-4 rounded-xl text-sm"></div>
         </div>
     </div>
 
+    <!-- Modal Konfirmasi -->
+    <div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                <h3 class="text-lg font-bold text-slate-800">Konfirmasi Data Pendaftaran Marketing</h3>
+                <button type="button" onclick="closeConfirmationModal()" class="text-slate-400 hover:text-slate-600 p-1 cursor-pointer font-bold">✕</button>
+            </div>
+            <p class="text-xs text-slate-500">Apakah data yang Anda masukkan di bawah ini sudah betul?</p>
+            <div id="modalSummaryContent" class="space-y-2 text-xs sm:text-sm bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-700 divide-y divide-slate-200"></div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button type="button" onclick="closeConfirmationModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium py-2.5 px-4 rounded-xl transition text-sm cursor-pointer">Periksa Kembali</button>
+                <button type="button" onclick="submitFormConfirmed()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-xl transition text-sm shadow-sm cursor-pointer">Sudah Betul, Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kamera -->
     <div id="cameraModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 space-y-4 text-center">
             <div class="flex items-center justify-between border-b border-slate-200 pb-3">
@@ -138,13 +184,26 @@
             } catch (e) {}
         });
 
-        function encodeKtpImage(element) {
+        function toggleOtherBank(selectEl) {
+            const container = document.getElementById('otherBankContainer');
+            const input = document.getElementById('mOtherBankName');
+            if (selectEl.value === 'Bank Lainnya') {
+                container.classList.remove('hidden');
+                input.setAttribute('required', 'true');
+            } else {
+                container.classList.add('hidden');
+                input.removeAttribute('required');
+                input.value = '';
+            }
+        }
+
+        function encodeImageFileAsURL(element) {
             const file = element.files[0];
             if (!file) return;
             const reader = new FileReader();
             reader.onloadend = function () {
                 document.getElementById('mKtpPhotoBase64').value = reader.result;
-                document.getElementById('ktpPreviewStatus').textContent = '✓ Foto KTP berhasil dimuat (' + file.name + ')';
+                document.getElementById('ktpPreviewStatus').textContent = '✓ File KTP galeri berhasil dimuat (' + file.name + ')';
             }
             reader.readAsDataURL(file);
         }
@@ -182,21 +241,64 @@
             closeCameraModal();
         }
 
-        document.getElementById('marketingForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btnSubmit');
+        function openConfirmationModal() {
+            const form = document.getElementById('marketingForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const ktpPhoto = document.getElementById('mKtpPhotoBase64').value;
+            if (!ktpPhoto) {
+                alert('Silakan unggah atau ambil foto KTP terlebih dahulu.');
+                return;
+            }
+
+            let bankName = document.getElementById('mBankName').value;
+            if (bankName === 'Bank Lainnya') {
+                bankName = document.getElementById('mOtherBankName').value || 'Bank Lainnya';
+            }
+
+            document.getElementById('modalSummaryContent').innerHTML = `
+                <div class="py-1 flex justify-between"><span>ID Marketing:</span><span class="font-semibold">${document.getElementById('mId').value}</span></div>
+                <div class="py-1 flex justify-between"><span>Kategori:</span><span class="font-semibold">${document.getElementById('mCategory').value}</span></div>
+                <div class="py-1 flex justify-between"><span>Nama / Agency:</span><span class="font-semibold">${document.getElementById('mName').value}</span></div>
+                <div class="py-1 flex justify-between"><span>WhatsApp:</span><span class="font-semibold">${document.getElementById('mWa').value}</span></div>
+                <div class="py-1 flex justify-between"><span>Nomor NPWP:</span><span class="font-semibold">${document.getElementById('mNpwp').value}</span></div>
+                <div class="py-1 flex justify-between"><span>NIK KTP:</span><span class="font-semibold">${document.getElementById('mKtp').value}</span></div>
+                <div class="py-1 flex justify-between"><span>Bank:</span><span class="font-semibold">${bankName}</span></div>
+                <div class="py-1 flex justify-between"><span>No Rekening:</span><span class="font-semibold">${document.getElementById('mAccountNumber').value}</span></div>
+                <div class="py-1 flex justify-between"><span>Pemilik Rekening:</span><span class="font-semibold">${document.getElementById('mAccountName').value}</span></div>
+            `;
+            document.getElementById('confirmModal').classList.remove('hidden');
+        }
+
+        function closeConfirmationModal() {
+            document.getElementById('confirmModal').classList.add('hidden');
+        }
+
+        async function submitFormConfirmed() {
+            closeConfirmationModal();
+            const btn = document.querySelector('button[onclick="openConfirmationModal()"]');
             const alertBox = document.getElementById('alertBox');
-            btn.textContent = 'Menyimpan Data...';
+            btn.textContent = 'Menyimpan Data ke Server...';
+
+            let bankName = document.getElementById('mBankName').value;
+            if (bankName === 'Bank Lainnya') {
+                bankName = document.getElementById('mOtherBankName').value || 'Bank Lainnya';
+            }
 
             const newM = {
                 mId: document.getElementById('mId').value.toUpperCase(),
                 mName: document.getElementById('mName').value,
                 mCategory: document.getElementById('mCategory').value,
                 mWa: document.getElementById('mWa').value,
-                mPhone: document.getElementById('mPhone').value,
+                mNpwp: document.getElementById('mNpwp').value,
                 mKtp: document.getElementById('mKtp').value,
                 mAddress: document.getElementById('mAddress').value,
-                mBank: document.getElementById('mBank').value,
+                mBankName: bankName,
+                mAccountNumber: document.getElementById('mAccountNumber').value,
+                mAccountName: document.getElementById('mAccountName').value,
                 mKtpPhotoBase64: document.getElementById('mKtpPhotoBase64').value
             };
 
@@ -212,7 +314,7 @@
                 }
                 alertBox.textContent = 'Data personil / agency marketing berhasil disimpan! Mengarahkan kembali ke form Mitra...';
                 alertBox.className = 'mt-4 p-4 rounded-xl text-sm bg-emerald-50 text-emerald-800 border border-emerald-200';
-                this.reset();
+                document.getElementById('marketingForm').reset();
                 document.getElementById('ktpPreviewStatus').textContent = '';
                 
                 setTimeout(() => {
@@ -224,7 +326,7 @@
             } finally {
                 btn.textContent = 'Simpan & Daftarkan Marketing';
             }
-        });
+        }
     </script>
 </body>
 </html>
